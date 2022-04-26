@@ -1,3 +1,4 @@
+using Examen.Forms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,7 @@ namespace Examen
             builder.RegisterType<BinaryEmpleadoRepository>().As<IEmpleadoModel>();
             builder.RegisterType<EmpleadoServices>().As<IEmpleadoServices>();
             var container = builder.Build();*/
-            //Application.Run(new Form1());
+            Application.Run(new Form1());
             //Application.Run(new EmpleadoForm(container.Resolve<IEmpleadoServices>()));
         }
     }
