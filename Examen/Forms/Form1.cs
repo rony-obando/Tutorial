@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AppCore.interfaces;
+using Domain.Entities;
 using Newtonsoft.Json;
 
 namespace Examen.Forms
@@ -19,15 +20,16 @@ namespace Examen.Forms
         {
             InitializeComponent();
         }
+        string apiKey = "2824a69890cc1539e8bf46e1d43167fc";
         void GetClimate()
         {
             try
             {
                 using (WebClient web = new WebClient())
                 {
-                    string url = string.Format("https://api.openweathermap.org/data/2.5/weather?q={0}&appid={1}", "Managua", "Key");
+                    string url = string.Format("http://api.openweathermap.org/data/2.5/onecall/timemachine?lat={0}&lon={1}&dt={2}&appid={3}",185,50,DateTime.Now,apiKey);
                     var json = web.DownloadString(url);
-                    // WeatherInfo.root Info = JsonConvert.DeserializeObject<WeatherInfo.root>(json);
+                   Info = JsonConvert.DeserializeObject<City.root>(json);
 
                 }
             }
@@ -36,6 +38,12 @@ namespace Examen.Forms
                 MessageBox.Show(ex.Message);
             }
 
+        }
+        City.root Info;
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            GetClimate();
+            lblName.Text = Info.weather[0].description.ToString();
         }
     }
 }
