@@ -1,4 +1,9 @@
+using AppCore.Interfaces;
+using AppCore.Services;
+using Autofac;
+using Domain.Interfaces;
 using Examen.Forms;
+using Infraestructure.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,12 +23,12 @@ namespace Examen
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            /*var builder = new ContainerBuilder();
-            builder.RegisterType<BinaryEmpleadoRepository>().As<IEmpleadoModel>();
-            builder.RegisterType<EmpleadoServices>().As<IEmpleadoServices>();
-            var container = builder.Build();*/
-            Application.Run(new Form1());
-            //Application.Run(new EmpleadoForm(container.Resolve<IEmpleadoServices>()));
+            var builder = new ContainerBuilder();
+            builder.RegisterType<BinaryJsonRepository>().As<IJsonModel>();
+            builder.RegisterType<JsonServices>().As<IJsonServices>();
+            var container = builder.Build();
+            Application.Run(new Form1(container.Resolve<IJsonServices>()));
+            
         }
     }
 }

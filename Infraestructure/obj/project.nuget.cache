@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "oJSQxKWS3SJzzhwnFe0YKGaZfSHslt2W9mDH+O0cwDT/rjOoo+Y6feEZ2cJNeuUSBTJ9nqkkais87umuiUpLBg==",
+  "dgSpecHash": "0PdNvrGv5/betpo8a6p48JYez3VWZf2JlZrHEM7mool8tiH23Ti/MTH4s8z1iQh6o32kmkET7/KQ96anv79Yxg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\CCBB28\\Desktop\\sda\\Infraestructure\\Infraestructure.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\carlo\\OneDrive\\Escritorio\\Examen\\Infraestructure\\Infraestructure.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\carlo\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -10,6 +10,7 @@
         "dependencies": {
           "AppCore": "1.0.0",
           "Autofac": "6.3.0",
+          "Infraestructure": "1.0.0",
           "Newtonsoft.Json": "13.0.1"
         },
         "runtime": {
@@ -48,6 +49,15 @@
         "runtime": {
           "Domain.dll": {}
         }
+      },
+      "Infraestructure/1.0.0": {
+        "dependencies": {
+          "Domain": "1.0.0",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "runtime": {
+          "Infraestructure.dll": {}
+        }
       }
     }
   },
@@ -84,6 +94,11 @@
       "sha512": ""
     },
     "Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Infraestructure/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

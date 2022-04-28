@@ -15,6 +15,7 @@ namespace Infraestructure.Repository
     {
         private string fileName;
         private int size;
+        private int NumberEliminated;
 
         public RAFContext(string fileName, int size)
         {
@@ -54,7 +55,6 @@ namespace Infraestructure.Repository
                             n = brHeader.ReadInt32();
                             k = brHeader.ReadInt32();
                         }
-                        //calculamos la posicion en Data
                         long pos = k * size;
                         bwData.BaseStream.Seek(pos, SeekOrigin.Begin);
 
@@ -86,7 +86,6 @@ namespace Infraestructure.Repository
                                     }
                                 }
                                 continue;
-                                //WriteObject(obj, bwData);
                             }
 
 
@@ -146,8 +145,6 @@ namespace Infraestructure.Repository
                             {
                                 continue;
                             }
-                            //int nj = (int)obj;
-                            //bwData.Write((int)obj);
                         }
 
                         long posh = 8 + n * 4;
@@ -262,10 +259,8 @@ namespace Infraestructure.Repository
 
                     long posh = 8 + (id - 1) * 4;
 
-                    //TODO Add Binary search to find the id
                     brHeader.BaseStream.Seek(posh, SeekOrigin.Begin);
                     int index = brHeader.ReadInt32();
-                    //TODO VALIDATE INDEX
                     long posd = (index - 1) * size;
                     brData.BaseStream.Seek(posd, SeekOrigin.Begin);
                     foreach (PropertyInfo pinfo in properties)
@@ -273,26 +268,7 @@ namespace Infraestructure.Repository
 
                         Type type = pinfo.PropertyType;
 
-                        if (!type.IsPrimitive && type.IsClass && type != Type.GetType("System.String"))
-                        {
-
-
-                            PropertyInfo[] infoClass = type.GetProperties();
-                            object objectClass = Activator.CreateInstance(pinfo.PropertyType);
-                            foreach (PropertyInfo PInfoClass in infoClass)
-                            {
-                                if (PInfoClass.Name.Equals("Id", StringComparison.CurrentCultureIgnoreCase))
-                                {
-                                    PInfoClass.SetValue(objectClass, brData.GetValue<int>(TypeCode.Int32));
-                                    pinfo.SetValue(newValue, objectClass);
-                                    break;
-                                }
-                            }
-                            //object j = Activator.CreateInstance(type);
-                            //pinfo.SetValue(newValue, GetObject(j, brData));
-                            continue;
-                        }
-
+                      
                         if (type.IsGenericType)
                         {
                             continue;
@@ -485,7 +461,6 @@ namespace Infraestructure.Repository
 
                             }
                             continue;
-                            //WriteObject(obj, binaryData);
                         }
                         if (type.IsGenericType)
                         {
@@ -666,6 +641,5 @@ namespace Infraestructure.Repository
                 throw;
             }
         }
-
     }
-}
+    }

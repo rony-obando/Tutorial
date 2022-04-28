@@ -54,6 +54,20 @@
         "runtime": {
           "bin/placeholder/Domain.dll": {}
         }
+      },
+      "Infraestructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Domain": "1.0.0",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/Infraestructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Infraestructure.dll": {}
+        }
       }
     }
   },
@@ -141,34 +155,44 @@
       "type": "project",
       "path": "../Domain/Domain.csproj",
       "msbuildProject": "../Domain/Domain.csproj"
+    },
+    "Infraestructure/1.0.0": {
+      "type": "project",
+      "path": "../Infraestructure/Infraestructure.csproj",
+      "msbuildProject": "../Infraestructure/Infraestructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0-windows7.0": [
       "AppCore >= 1.0.0",
       "Autofac >= 6.3.0",
+      "Infraestructure >= 1.0.0",
       "Newtonsoft.Json >= 13.0.1"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\CCBB28\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\carlo\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\CCBB28\\Desktop\\sda\\Examen\\Examen.csproj",
+      "projectUniqueName": "C:\\Users\\carlo\\OneDrive\\Escritorio\\Examen\\Examen\\Examen.csproj",
       "projectName": "Examen",
-      "projectPath": "C:\\Users\\CCBB28\\Desktop\\sda\\Examen\\Examen.csproj",
-      "packagesPath": "C:\\Users\\CCBB28\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\CCBB28\\Desktop\\sda\\Examen\\obj\\",
+      "projectPath": "C:\\Users\\carlo\\OneDrive\\Escritorio\\Examen\\Examen\\Examen.csproj",
+      "packagesPath": "C:\\Users\\carlo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\carlo\\OneDrive\\Escritorio\\Examen\\Examen\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\CCBB28\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\carlo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0-windows7.0"
@@ -181,8 +205,11 @@
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "projectReferences": {
-            "C:\\Users\\CCBB28\\Desktop\\sda\\AppCore\\AppCore.csproj": {
-              "projectPath": "C:\\Users\\CCBB28\\Desktop\\sda\\AppCore\\AppCore.csproj"
+            "C:\\Users\\carlo\\OneDrive\\Escritorio\\Examen\\AppCore\\AppCore.csproj": {
+              "projectPath": "C:\\Users\\carlo\\OneDrive\\Escritorio\\Examen\\AppCore\\AppCore.csproj"
+            },
+            "C:\\Users\\carlo\\OneDrive\\Escritorio\\Examen\\Infraestructure\\Infraestructure.csproj": {
+              "projectPath": "C:\\Users\\carlo\\OneDrive\\Escritorio\\Examen\\Infraestructure\\Infraestructure.csproj"
             }
           }
         }
@@ -216,6 +243,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[5.0.13, 5.0.13]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
@@ -224,7 +257,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
