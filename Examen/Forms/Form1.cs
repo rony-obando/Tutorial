@@ -30,8 +30,8 @@ namespace Examen.Forms
             {
                 using (WebClient web = new WebClient())
                 {
-                    //DateTime date = new DateTime(2022, 04,22);
-                    string url = string.Format("http://api.openweathermap.org/data/2.5/onecall/timemachine?lat={0}&lon={1}&dt={2}&appid={3}", label2.Tag, label1.Tag, 1650838482, "cce6c84d83b1a7c75e8a6331e023a33a");
+                    long date = ((DateTimeOffset)DateTime.Now).ToUnixTimeSeconds();
+                    string url = string.Format("http://api.openweathermap.org/data/2.5/onecall/timemachine?lat={0}&lon={1}&dt={2}&appid={3}", label2.Tag, label1.Tag, date, "cce6c84d83b1a7c75e8a6331e023a33a");
                     string json = web.DownloadString(url);
                     JsonString json1 = new JsonString
                     {
